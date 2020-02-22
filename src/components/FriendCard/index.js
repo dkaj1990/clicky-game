@@ -3,36 +3,33 @@ import PropTypes from 'prop-types';
 import "./style.css";
 
 const propTypes = {
-  name: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  occupation: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-}
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    occupation: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    checkIfClicked: PropTypes.func.isRequired,
+};
 
 const FriendCard = ({
-  name,
-  image,
-  occupation,
-  location,
+    id,
+    name,
+    image,
+    occupation,
+    location,
+    checkIfClicked,
 }) => (
+  <span onClick={() => checkIfClicked(id)} className="remove">
     <div className="card">
       <div className="img-container">
         <img alt={name} src={image} />
       </div>
-      <div className="content">
-        <ul>
-          <li>
-            <strong>Name:</strong> {name}
-          </li>
-          <li>
-            <strong>Occupation:</strong> {occupation}
-          </li>
-          <li>
-            <strong>Location:</strong> {location}
-          </li>
-        </ul>
-      </div>
+     
+     
+        
+     
     </div>
+    </span>
   );
 
 FriendCard.propTypes = propTypes;

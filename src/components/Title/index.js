@@ -1,18 +1,16 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import "./style.css";
 
-const propTypes = {
-  children: PropTypes.oneOf([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-};
-
-const Title = ({
-  children
-}) => <h1 className="title">{children}</h1>;
-
-Title.propTypes = propTypes;
+function Title(props) {
+  return ( 
+    <div className="jumbotron jumbotron-fluid">
+  <div className="container">
+    <h1 className="display-4 title">Memory Game</h1>
+    <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+  
+  );
+}
 
 export default Title;
