@@ -6,7 +6,7 @@ function Title(props) {
     <div className="jumbotron jumbotron-fluid">
   <div className="container">
     <h1 className="display-4 title">Memory Game</h1>
-    <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <p className="lead">Click an image.....ONLY ONCE</p>
   </div>
 </div>
   
