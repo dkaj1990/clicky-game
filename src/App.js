@@ -7,24 +7,45 @@ import {
 } from './components';
 import friendsData from './friends.json';
 
-
-
 const App = () => {
-  const gameScore = 0;
+  
     const [friends, setFriends] = useState(friendsData);
+    const [clicked, setClicked] = useState([]);
+    const [score, setScore] = useState(0);
+       
+   
 
     const checkIfClicked = id => {
+      if(clicked.includes(id)){
+        setScore(0);
+        setClicked([]); 
+        alert("Game over");        
 
-      
-      const filteredFriends = friends.filter(friend => friend.id !== id);
+      }else{
+      setClicked([...clicked, id]);
+      randomizeCharacters(friends); 
+      setScore(score + 1);
+      }
 
-      setFriends(filteredFriends);
+      //const filteredFriends = friends.filter(friend => friend.id !== id);
+
+     // setFriends(filteredFriends);
+
+     
+    }
+
+    const randomizeCharacters = friends => {
+      friends.sort((a, b) => {
+        return 0.5 - Math.random();
+      });
     };
+
+    
 
     return (
       <Wrapper>
         <Title>Memory Game</Title>
-        <Score> {gameScore} </Score>
+        <Score score={score}/> 
         {friends.map(friend => (
           <FriendCard
             checkIfClicked={checkIfClicked}
